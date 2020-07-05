@@ -1,43 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TodoList({list,handleComplete}){
   console.log('ddd',list); 
 
   return (
-    <ul>
+    <ListGroup className="ul">
       {list.map(item => (
-        <li
-          className={`complete-${item.complete.toString()}`}
+        <ListGroup.Item
+          className={`complete-${item.complete.toString()} li ` }
           key={item._id}
         >
           <span onClick={() => handleComplete(item._id)}>
-            {item.text}  |  {item.difficulty}  |  {item.assignee} 
+            {item.text}  By   {item.assignee} 
           </span>
-        </li>
+          </ListGroup.Item>
       ))}
-    </ul>
+    </ListGroup>
   );
 }
 
 
-// class TodoList extends React.Component {
 
-//   render() {
-//     return (
-//       <ul>
-//         {this.props.list.map(item => (
-//           <li
-//             className={`complete-${item.complete.toString()}`}
-//             key={item._id}
-//           >
-//             <span onClick={() => this.props.handleComplete(item._id)}>
-//               {item.text}  |  {item.difficulty}  |  {item.assignee} 
-//             </span>
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//   }
-// }
 
 export default TodoList;

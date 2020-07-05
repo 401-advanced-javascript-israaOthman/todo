@@ -4,6 +4,15 @@ body, html {
     padding:0;
     width: 100%;
 }
+
+.container{
+    margin-top: 3%;
+}
+h2{
+    background-color: #353A40;
+    padding: 1%;
+    color: white;
+}
 .todo-details {
     display:flex;
     flex-direction:column;
@@ -42,18 +51,18 @@ body, html {
         }
     }
 
-    ul {
+    .ul {
         list-style-type:none;
         margin:0;
         padding:0;
 
-        li {
+        .li {
 
-            align-items: center;
-            display:flex;
-            flex-direction:row;
-            font-size: .75em;
-            margin: .75em .5em;
+            // align-items: center;
+            // display:flex;
+            // flex-direction:row;
+            // font-size: .75em;
+            // margin: .75em .5em;
 
             &.complete-true {
               span {
@@ -76,7 +85,7 @@ body, html {
                  border: .5px solid #eee;
                  display:inline-block;
                  padding: .2em .25em;
-                 width: 300px;
+                 width: 100%;;
              }
 
             button {
