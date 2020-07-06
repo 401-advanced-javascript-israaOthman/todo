@@ -13,6 +13,31 @@ h2{
     padding: 1%;
     color: white;
 }
+.complete-complete {
+    color: white;
+    background: red;
+    border: 2px solid red;
+    border-radius: 20px;
+}
+.complete-pending {
+    color: white;
+    background: green;
+    border: 2px solid green;
+    border-radius: 20px;
+}
+.firstRow{
+    border-bottom: 1px solid #cecccc;
+    padding: 1%;
+}
+.text-end{
+    text-align: end;
+}
+.form{
+    border: 1px solid darkgray;
+    border-radius: 2%;
+    padding: 1%;
+    margin-right: 8%;
+}
 .todo-details {
     display:flex;
     flex-direction:column;
@@ -58,20 +83,18 @@ h2{
 
         .li {
 
-            // align-items: center;
-            // display:flex;
-            // flex-direction:row;
-            // font-size: .75em;
-            // margin: .75em .5em;
+            box-shadow: 0px 2px 12px #888888;
+            padding-top: 1%;
 
             &.complete-complete {
-              span {
-                background: pink;
-                text-decoration:line-through;
-                &:hover {
-                   background: seagreen;
-                }
-              }
+                    background: red;
+            //   span {
+            //     background: pink;
+            //     text-decoration:line-through;
+            //     &:hover {
+            //        background: seagreen;
+            //     }
+            //   }
             }
 
             span {
