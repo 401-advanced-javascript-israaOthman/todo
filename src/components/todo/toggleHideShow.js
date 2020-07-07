@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToggleContext } from '../components/context/hideShow';
+import { ToggleContext } from '../context/hideShow';
 
 class Content extends React.Component {
 
