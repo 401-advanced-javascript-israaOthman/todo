@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Pagination from './pajination';
 import useAjax from './hooks/useAjax';
 import Header from './header.js';
 import Row from 'react-bootstrap/Row';
@@ -14,8 +15,19 @@ import './todo.scss';
 const ToDo = () => {
 
   const [_addItem,_toggleComplete,_getTodoItems,_deleteItem,list] = useAjax();
+  const [itemsPerPage,setItemsPerPage] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
+
 
   useEffect(_getTodoItems, []);
+
+ // Get current posts
+ const indexOfLastItem = currentPage * itemsPerPage;
+ const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+ const currentItems = list.slice(indexOfFirstItem, indexOfLastItem);
+
+ // Change page
+ const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -36,11 +48,18 @@ const ToDo = () => {
           <Col >
           <div>
           <TodoList
-            list={list}
+            list={currentItems}
             handleComplete={_toggleComplete}
             handleDelete={_deleteItem}
           />
         </div>
+          </Col>
+          <Col>
+          <Pagination 
+          itemsPerPage={itemsPerPage}
+          totalItems={list.length}
+          paginate={paginate}
+          />
           </Col>
         </Row>
       </Container>

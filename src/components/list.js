@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TodoList({list,handleComplete,handleDelete}){
-  console.log('ddd',list); 
+  // console.log('ddd',list); 
 
   return (
     <Container  className="ul">
