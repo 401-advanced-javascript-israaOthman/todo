@@ -8,20 +8,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {ToggleContext} from '../context/hideShow';
 import {PaginationContext} from '../context/paginationCo';
 
+import {LoginContext} from '../auth/cnontext';
+import Auth from '../auth/auth';
+
 function TodoList(props){
  const toggleContext = useContext(ToggleContext);
  const pagination = useContext(PaginationContext);
+ const loginContext = useContext(LoginContext);
   return (
     <Container  className="ul">
        {pagination.currentItem.map(item => (
          <Container className={` complete-${item.complete}-${toggleContext.status} li`}  key={item._id}>
             <Row className="firstRow">
-                <Col  key={item._id} className={`complete-${item.complete}`}  onClick={() => props.handleComplete(item._id)}>
+                <Col  key={item._id} className={`complete-${item.complete}`}  onClick={  loginContext.user.capabilities.includes('update') ? () => props.handleComplete(item._id):null}>
                    {item.complete}
                  </Col>
                 <Col> {item.assignee} </Col>
                 <Col className="text-end">
+                  <Auth capability='delete'>
                  <button onClick={() => props.handleDelete(item._id)}>x</button>
+                 </Auth>
                 </Col>
             </Row>
             <Row>
@@ -37,20 +43,6 @@ function TodoList(props){
        ))}
     </Container>
 
-    // <ListGroup className="ul">
-    //   {list.map(item => (
-    //     <ListGroup.Item
-    //       className={`complete-${item.complete} li ` }
-    //       key={item._id}
-    //     >
-    //       <span onClick={() => handleComplete(item._id)}>
-    //         {item.text}  ---- {item.complete} ---- {item.assignee} 
-    //       </span>
-    //       <button onClick={() => handleDelete(item._id)}>x</button>
-
-    //       </ListGroup.Item>
-    //   ))}
-    // </ListGroup>
   );
 }
 

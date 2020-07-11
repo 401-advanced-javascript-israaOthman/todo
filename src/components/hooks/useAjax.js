@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-const todoAPI = 'http://api-testtt.herokuapp.com/api/v1/todo';
+const todoAPI = 'https://lab32-401.herokuapp.com/todo';
 
 
 function useAjax (){

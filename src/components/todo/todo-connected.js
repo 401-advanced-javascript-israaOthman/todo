@@ -15,24 +15,15 @@ import './todo.scss';
 import PaginationContext from '../context/paginationCo';
 import ChangeNumberOfPages from './itemperpage';
 
-
+import Auth from '../auth/auth';
 
 const ToDo = () => {
 
   const [_addItem, _toggleComplete, _getTodoItems, _deleteItem, list] = useAjax();
-  // const [itemsPerPage, setItemsPerPage] = useState(3);
-  // const [currentPage, setCurrentPage] = useState(1);
 
 
   useEffect(_getTodoItems, []);
 
-  // // Get current posts
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentItems = list.slice(indexOfFirstItem, indexOfLastItem);
-
-  // // Change page
-  // const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -44,6 +35,8 @@ const ToDo = () => {
 
         <Row className="justify-content-md-center">
           <Col><h2>
+    
+            {console.log('*************',list)}
             There are {list.filter(item => item.complete == 'pending').length} Items To Complete
         </h2></Col>
         
@@ -51,9 +44,10 @@ const ToDo = () => {
         </Row>
         <Row className="todo">
           <Col className="form">
-            <div>
+            <Auth capability='update'>
+          <div>
               <TodoForm handleSubmit={_addItem} />
-            </div></Col>
+            </div></Auth></Col>
           <PaginationContext list={list}>
 
             <Col >
@@ -61,7 +55,6 @@ const ToDo = () => {
                 <ChangeNumberOfPages />
 
                 <TodoList
-                  // list={currentItems}
                   handleComplete={_toggleComplete}
                   handleDelete={_deleteItem}
                 />
@@ -69,11 +62,7 @@ const ToDo = () => {
 
               <Row >
                 <Pagination
-                  // itemsPerPage={itemsPerPage}
                   totalItems={list.length}
-                // paginate={paginate}
-                // currentPage={currentPage}
-
                 />
               </Row>
             </Col>
