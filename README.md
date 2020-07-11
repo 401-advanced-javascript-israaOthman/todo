@@ -4,6 +4,9 @@
 
 ## Links :
   [lab31 PR](https://github.com/401-advanced-javascript-israaOthman/todo/pull/1)  
+  [lab32 PR](https://github.com/401-advanced-javascript-israaOthman/todo/pull/2)  
+  [lab33 PR](https://github.com/401-advanced-javascript-israaOthman/todo/pull/3)  
+
 
 
 

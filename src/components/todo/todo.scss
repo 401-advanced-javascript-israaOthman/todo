@@ -38,6 +38,12 @@ h2{
     padding: 1%;
     margin-right: 8%;
 }
+.complete-complete-hide{
+   display: block;
+}
+.complete-complete-show{
+    display: none;
+}
 .todo-details {
     display:flex;
     flex-direction:column;
