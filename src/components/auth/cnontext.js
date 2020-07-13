@@ -1,6 +1,7 @@
 import React from 'react';
 import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken';
+import axios from 'axios';
 
 const API = 'https://lab32-401.herokuapp.com';
 
@@ -38,6 +39,7 @@ class LoginProvider extends React.Component{
         }
     }
 
+
     login = async(username,password) =>{
         try{
             const results = await fetch(`${API}/signin`,{
@@ -56,6 +58,7 @@ class LoginProvider extends React.Component{
             console.log('error');
         }
     }
+
 
     logout = () =>{
         this.setLoginState(false,null,{});

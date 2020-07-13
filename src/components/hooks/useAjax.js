@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-const todoAPI = 'https://lab32-401.herokuapp.com/todo';
+const todoAPI = 'http://api-testtt.herokuapp.com/api/v1/todo';
 
 
 function useAjax (){
@@ -22,6 +22,7 @@ function useAjax (){
       })
         .then(response => {
             setList([...list, response.data])
+            console.log.log('555555555',list)
             })
         .catch(console.error);
   };

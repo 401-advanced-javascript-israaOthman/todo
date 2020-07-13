@@ -19,7 +19,7 @@ class Login extends React.Component{
     }
     handleSubmit = e =>{
         e.preventDefault();
-        this.context.loggedIn(this.state.username,this.state.password);
+        this.context.login(this.state.username,this.state.password);
 
     }
 
@@ -27,14 +27,14 @@ class Login extends React.Component{
         return(
             <>
                <Show condition = {this.context.loggedIn}>
-                   <button onClick={this.context.loggedIn}>Logout</button>
+                   <button onClick={this.context.logout}>Logout</button>
                </Show>
                <Show condition = {!this.context.loggedIn}>
                    <form onSubmit={this.handleSubmit}>
                        <input
                          placeholder='username' name='username'onChange={this.handleChange}/>
                        <input 
-                        placeholder='password' name='password'onChange={this.handleChange}/>
+                        placeholder='password' type="password" name='password'onChange={this.handleChange}/>
                         <button>Login</button>
                          
                    </form>

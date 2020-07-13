@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {LoginContext} from './cnontext'
+import { LoginContext } from './cnontext'
 import Show from '../show/show';
 
 
@@ -14,7 +14,7 @@ class SignUP extends React.Component {
       username: '',
       password: '',
       email: '',
-      role: '',
+      role: 'user',
     };
   }
 
@@ -36,24 +36,30 @@ class SignUP extends React.Component {
               placeholder="userName"
               name="username"
               onChange={this.handleChange}
-            />
+            /><br />
             <input
               placeholder="password"
               name="password"
+              type="password"
               onChange={this.handleChange}
-            />
+            /><br />
 
             <input
               placeholder="email"
               name="email"
               onChange={this.handleChange}
-            />
-
+            /><br />
+            {/* 
             <input
               placeholder="role"
               name="role"
               onChange={this.handleChange}
-            />
+            /><br/> */}
+            <select onChange={this.handleChange} name="role">
+              <option value="user" >User</option>
+              <option value="admin" >Admin</option>
+              <option value="editors" >Editor</option>
+            </select><br/>
 
             <button>SignUP</button>
           </form>
