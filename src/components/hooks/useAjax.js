@@ -22,6 +22,7 @@ function useAjax (){
       })
         .then(response => {
             setList([...list, response.data])
+            console.log.log('555555555',list)
             })
         .catch(console.error);
   };
